@@ -144,6 +144,25 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>http://nexus.vdongchina.com/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot</id>
+            <url>http://nexus.vdongchina.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <url>http://nexus.vdongchina.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+
     <build>
         <pluginManagement>
             <plugins>
