@@ -18,8 +18,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Dubbo Admin</title>
 
-    <link type="text/css" href="/css/common.css" rel="stylesheet"/>
-    <link type="text/css" href="/css/skin.css" rel="stylesheet"/>
+    <link type="text/css" href="$rootContextPath.getURI("css/common.css")" rel="stylesheet"/>
+    <link type="text/css" href="$rootContextPath.getURI("css/skin.css")" rel="stylesheet"/>
     <link type="text/css" href="$rootContextPath.getURI("css/dubbo.css")" rel="stylesheet"/>
     <script type="text/javascript" src="$rootContextPath.getURI("js/ajax.js")"></script>
     <script type="text/javascript" src="$rootContextPath.getURI("js/box.js")"></script>
@@ -63,12 +63,14 @@
                                     style="cursor: pointer;" width="20" height="20"/></td>
             </tr>
             <tr height="100">
-                <td align="right"><span id="alertText" style="font-size: 32px;">#springMessage('please.input')</span><br/><span id="alertData" style="font-size: 12px;"></span></td>
+                <td align="right"><span id="alertText" style="font-size: 32px;">#springMessage(
+                    'please.input')</span><br/><span id="alertData" style="font-size: 12px;"></span></td>
                 <td></td>
             </tr>
             <tr>
                 <td align="right">
-                    <div class="btn_info" style="float: right; clear: left;"><a href="#" onclick="alertOK();">#springMessage(
+                    <div class="btn_info" style="float: right; clear: left;"><a href="#"
+                                                                                onclick="alertOK();">#springMessage(
                         "confirm")</a></div>
                 </td>
                 <td></td>
@@ -85,7 +87,8 @@
                                     style="cursor: pointer;" width="20" height="20"/></td>
             </tr>
             <tr height="120">
-                <td align="right"><span id="confirmText" style="font-size: 32px;">#springMessage("confirm")</span><br/><span
+                <td align="right"><span id="confirmText" style="font-size: 32px;">#springMessage(
+                    "confirm")</span><br/><span
                         id="confirmData" style="font-size: 12px;"></span></td>
                 <td></td>
             </tr>
@@ -103,7 +106,7 @@
         </table>
     </div>
         #parse("/templates/home/control/menu.vm")
-##        $control.setTemplate("home:menu.vm")
+    ##        $control.setTemplate("home:menu.vm")
     <script language="javascript">setActiveTab(1);</script>
 
     <input type="hidden" name="searchName" id="searchName" value="1"/>
@@ -160,7 +163,8 @@
                         "service")</a><span class="search_line">|</span></li>
                     <li id="one2" onclick="setTab2('one',2,3); return false;"><a href="#">#springMessage(
                         "application")</a><span class="search_line">|</span></li>
-                    <li id="one3" onclick="setTab2('one',3,3); return false;"><a href="#">#springMessage("address")</a><span
+                    <li id="one3" onclick="setTab2('one',3,3); return false;"><a href="#">#springMessage(
+                        "address")</a><span
                             class="search_line_end">|</span></li>
                 </ul>
             </div>
@@ -185,9 +189,11 @@
                     <tr>
                         <th>#springMessage("add"):</th>
                         <td style="padding-left: 10px;">
-                            <a href="$rootContextPath.getURI("governance/providers/add")">#springMessage("providers")</a>&nbsp;
+                            <a href="$rootContextPath.getURI("governance/providers/add")">#springMessage(
+                                "providers")</a>&nbsp;
                             <a href="$rootContextPath.getURI("governance/routes/add")">#springMessage("routes")</a>&nbsp;
-                            <a href="$rootContextPath.getURI("governance/overrides/add")">#springMessage("overrides")</a>&nbsp;
+                            <a href="$rootContextPath.getURI("governance/overrides/add")">#springMessage(
+                                "overrides")</a>&nbsp;
                             <a href="$rootContextPath.getURI("governance/accesses/add")">#springMessage("accesses")</a>&nbsp;
                             <a href="$rootContextPath.getURI("governance/weights/add")">#springMessage("weights")</a>&nbsp;
                             <a href="$rootContextPath.getURI("governance/loadbalances/add")">#springMessage(
@@ -217,8 +223,10 @@
             var ctrl = document.getElementById("searchContent");
             ctrl.focus();
         }
+
         var searchType = "services";
         var serviceListLoaded = false;
+
         function fnSearch() {
             var searchContent = document.getElementById('searchContent');
             var keyword = searchContent.value;
@@ -230,6 +238,7 @@
             }
             window.location.href = '$rootContextPath.getURI("governance")/' + searchType + '?keyword=' + keyword;
         }
+
         function setTab2(name, cursel, n) {
             var obj = document.getElementById('searchContent');
             for (var i = 1; i <= n; i++) {
@@ -258,6 +267,7 @@
             hideService();
             serviceListLoaded = false;
         }
+
         function fnonfocus() {
             var obj = document.getElementById('searchContent');
             if (obj.value == '#springMessage("please.input.service")'
@@ -266,6 +276,7 @@
                 obj.value = '';
             }
         }
+
         function fnonblur() {
             var obj = document.getElementById('searchContent');
             if (obj.value == '') {
