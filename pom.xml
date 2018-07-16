@@ -158,8 +158,14 @@
     <repositories>
         <repository>
             <id>nexus</id>
+            <name>nexus repository</name>
             <url>http://nexus.vdongchina.com/nexus/content/groups/public/</url>
-            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
